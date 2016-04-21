@@ -8,10 +8,11 @@ thinkjs 插件，在 thinkjs 中使用 react 来构建同构的 webpage
 
 ## 使用
 
-1. 编辑 bootstrap/middleware.js，引入插件
+1. 编辑 src/common/bootstrap/plugins.js （如果没有则创建），引入插件
 
 	```javascript
-	require('think-react-page')
+	import reactPlugin from 'think-react-page';
+	reactPlugin.init();
 	```
 
 2. 在 view 目录下创建 base.html 模板文件，例如
@@ -50,9 +51,13 @@ thinkjs 插件，在 thinkjs 中使用 react 来构建同构的 webpage
 4. 在 www/static/js/index 中创建浏览器端执行脚本 index.jsx，例如
 
 	```jsx
+	import React from 'react';
 	import ReactDOM from 'react-dom';
+	import provideContext from 'think-react-page/lib/provideContext';
 	import {Page} from 'HomePage/IndexIndexPage'; // HomePage 为 webpack 中定义的别名，即 /view/home
-	ReactDOM.render(<Page location={location} context={G.context} />, document.getElementById('react-wraper'));
+
+	const ContextProvider = provideContext(G.context)(Page);
+	ReactDOM.render(<ContextProvider location={location} />, document.getElementById('react-wraper'));
 	```
 
 	然后使用 webpack 编译 index.jsx => index.js

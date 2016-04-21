@@ -3,6 +3,7 @@ import fs from 'fs';
 import url from 'url';
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
+import provideContext from '../../provideContext';
 
 const exists = function(path) {
 	return new Promise((resolve) => {
@@ -24,10 +25,10 @@ async function getBaseHtml(templateFile) {
 
 	return baseHtml;
 }
-function getPageHtml(templateFile, props=null) {
+function getPageHtml(templateFile, {context, ...props}) {
 	var Page = require(templateFile).Page;
 
-	return renderToString(createElement(Page, props));
+	return renderToString(createElement(provideContext(context)(Page), props));
 }
 
 export default class extends think.adapter.base {
