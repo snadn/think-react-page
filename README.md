@@ -36,17 +36,17 @@ thinkjs 插件，在 thinkjs 中使用 react 来构建同构的 webpage
 
 3. 在 view/home 中创建相应的视图文件，例如 IndexIndexPage.js
 
-	命名规则 \[Controller\]\[Action\]Page.js 首字母大写
-	在视图中导出命名为 Page 的 Component，例如
+	- 命名规则 \[Controller\]\[Action\]Page.js 首字母大写
+	- 在视图中导出命名为 Page 的 Component，例如
 
-	```jsx
-	import React, {Component} from 'react'
-	export class Page extends Component {
-		render() {
-			return 'React Demo';
+		```jsx
+		import React, {Component} from 'react'
+		export class Page extends Component {
+			render() {
+				return 'React Demo';
+			}
 		}
-	}
-	```
+		```
 
 4. 在 www/static/js/index 中创建浏览器端执行脚本 index.jsx，例如
 
