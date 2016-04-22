@@ -70,12 +70,12 @@ thinkjs 插件，在 thinkjs 中使用 react 来构建同构的 webpage
 1. 在 node 端，渲染 Page 时会在 props 中传入 location ，会设置 context。
 
 	- location 为 url.parse(http.req.url) 的结果
-	- context 中为 controller 中 assgin 传入的参数 （context 的使用参见：https://facebook.github.io/react/docs/context.html）
+	- context 中为 controller 中 assgin 传入的参数 （ context 的使用参见：https://facebook.github.io/react/docs/context.html ）
 
 2. 处理 base.html 模板时
 
 	- 使用 Page 渲染成的字符串替换 {{html}}
-	- 将全部变量 G JSON.stringify 后，替换 {{GStr}}
+	- 将全局变量 G JSON.stringify 后，替换 {{GStr}}
 	- 使用浏览器端脚本路径替换 {{pageScript}}
 
 ## 配置
