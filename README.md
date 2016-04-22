@@ -67,10 +67,10 @@ thinkjs 插件，在 thinkjs 中使用 react 来构建同构的 webpage
 
 ## 潜规则
 
-1. 在 node 端，渲染 Page 时会传入 location 和 context 两个 props。
+1. 在 node 端，渲染 Page 时会在 props 中传入 location ，会设置 context。
 
 	- location 为 url.parse(http.req.url) 的结果
-	- context 中为 controller 中 assgin 传入的参数
+	- context 中为 controller 中 assgin 传入的参数 （context 的使用参见：https://facebook.github.io/react/docs/context.html）
 
 2. 处理 base.html 模板时
 
